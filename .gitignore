@@ -1,0 +1,30 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.log
+
+# Virtual environment
+venv/
+.env
+
+# Jupyter Notebook checkpoints (if you add any)
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Output data
+*.json
+*.csv
+data/hsbc_faq.json
+
+# VSCode (optional)
+.vscode/
+
+# FAISS index or vectorstore files (if saved later)
+*.faiss
+*.pkl
