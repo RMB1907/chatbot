@@ -20,7 +20,7 @@ Thumbs.db
 # Output data
 *.json
 *.csv
-data/hsbc_faq.json
+data/proverbs.json
 
 # VSCode (optional)
 .vscode/

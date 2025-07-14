@@ -15,7 +15,11 @@ def get_proverbs_chapter(chapter_num):
     data = resp.json()
     verses = data.get("verses", [])
     return [
-        {"chapter": v["chapter"], "verse": v["verse"], "text": v["text"].strip()}
+        {
+            "chapter": v["chapter"],
+            "verse": v["verse"],
+            "text": v["text"].replace("\n", " ").strip()
+        }
         for v in verses
     ]
 

@@ -1,5 +1,3 @@
-# scripts/build_index_custombert.py
-
 import json
 from app.vectorstore_custombert import build_faiss_index
 

@@ -2,22 +2,25 @@
 
 import questionary
 
-def run_minilm():
+def run_ask_mode():
     from app.vectorstore import load_faiss_index, search_faiss
     index, docs = load_faiss_index()
-    print("\n Using MiniLM model (Sentence-Transformers)\n")
+    print("\nAsk Mode — Using MiniLM model\n")
     interactive_loop(index, docs, search_faiss)
 
-def run_custombert():
-    from app.vectorstore_custombert import load_faiss_index, search_faiss
-    index, docs = load_faiss_index()
-    print("\n Using Custom Bible ALBERT model\n")
-    interactive_loop(index, docs, search_faiss)
+def run_play_mode():
+    from app.proverbs_mlm import play_round
+    print("\nPlay Mode — Fill in the blank from Proverbs\n")
+    while True:
+        play_round()
+        again = input("\nPlay again? (y/n): ").strip().lower()
+        if again != "y":
+            break
 
 def interactive_loop(index, docs, search_fn):
     print("Ask for wisdom from Proverbs (type 'exit' to quit)\n")
     while True:
-        query = input("You: ")
+        query = input("\nYou: ")
         if query.lower() == "exit":
             break
         results = search_fn(query, index, docs)
@@ -26,14 +29,17 @@ def interactive_loop(index, docs, search_fn):
 
 if __name__ == "__main__":
     choice = questionary.select(
-        "Choose the embedding model:",
+        "Choose the mode:",
         choices=[
-            "MiniLM (default)",
-            "Custom Bible ALBERT"
+            "Ask Mode (default)",
+            "Play Mode (MLM quiz)"
         ]
     ).ask()
 
-    if choice == "Custom Bible ALBERT":
-        run_custombert()
+    if choice == "Play Mode (MLM quiz)":
+        run_play_mode()
     else:
-        run_minilm()
+        run_ask_mode()
+
+#  .\venv\Scripts\Activate.ps1
+#  python main.py

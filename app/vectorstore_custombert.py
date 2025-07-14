@@ -4,7 +4,7 @@ import faiss
 import pickle
 from transformers import AutoTokenizer, AutoModel
 
-# ✅ Change model name here
+# Change model name here
 model_name = "Pragash-Mohanarajah/albert-base-v2-finetuned-bible-accelerate"
 
 # Load tokenizer and model
