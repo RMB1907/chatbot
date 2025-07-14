@@ -1,4 +1,4 @@
-# setup.ps1
+# setup.ps1 
 
 $folders = @("data", "scripts", "app")
 
@@ -12,14 +12,14 @@ foreach ($folder in $folders) {
 
 Write-Output "`nCreating starter files..."
 $files = @(
-    "scripts\scrape_hsbc.py",
+    "scripts\scrape_proverbs.py",
     "app\vectorstore.py",
     "app\rag_chain.py",
     "app\retriever.py",
     "app\ui.py",
     "main.py",
-    "requirements.txt",
     ".env",
+    ".gitignore",
     "README.md"
 )
 
@@ -36,6 +36,6 @@ Write-Output "`nActivating environment..."
 
 Write-Output "`nInstalling dependencies..."
 pip install --upgrade pip
-pip install requests beautifulsoup4 langchain openai faiss-cpu tiktoken python-dotenv
+pip install requests sentence-transformers langchain openai faiss-cpu tiktoken python-dotenv
 
 Write-Output "`nSetup complete."
