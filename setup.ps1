@@ -36,6 +36,6 @@ Write-Output "`nActivating environment..."
 
 Write-Output "`nInstalling dependencies..."
 pip install --upgrade pip
-pip install requests sentence-transformers langchain openai faiss-cpu tiktoken python-dotenv
+pip install requests sentence-transformers langchain questionary faiss-cpu tiktoken transformers python-dotenv
 
 Write-Output "`nSetup complete."
